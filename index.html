@@ -1,1 +1,23 @@
+let createInitialsFromName = (name) => {
+  // Split the name into words
+  let words = name.split(' ');
+
+  if (words.length === 1) {
+    // A single worded name: Return the first two letters in uppercase
+    return words[0].slice(0, 2).toUpperCase();
+  } else if (words.length === 2) {
+    // A two worded name: Return the first letter of each word in uppercase
+    return (words[0][0] + words[1][0]).toUpperCase();
+  } else if (words.length > 2) {
+    // A name with more than two words: Return the initials of the first and last words in uppercase
+    let firstInitial = words[0][0];
+    let lastInitial = words[words.length - 1][0];
+    return (firstInitial + lastInitial).toUpperCase();
+  } else {
+    // Invalid input, return an empty string
+    return '';
+  }
+}
+
+module.exports = createInitialsFromName;
 
